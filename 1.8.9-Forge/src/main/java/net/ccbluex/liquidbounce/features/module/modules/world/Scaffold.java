@@ -537,6 +537,6 @@ public class Scaffold extends Module {
 
     @Override
     public String getTag() {
-        return modeValue.get();
+        return placeModeValue.get();
     }
 }
