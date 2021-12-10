@@ -78,10 +78,11 @@ public class Speed extends Module {
 
             // Other
             new SlowHop(),
+            new Strafe(),
             new CustomSpeed()
     };
 
-    public final ListValue modeValue = new ListValue("Mode", getModes(), "NCPBHop") {
+    public final ListValue modeValue = new ListValue("Mode", getModes(), "Strafe") {
 
         @Override
         protected void onChange(final String oldValue, final String newValue) {
