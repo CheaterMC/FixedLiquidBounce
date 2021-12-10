@@ -43,6 +43,7 @@ public class Speed extends Module {
             new OnGround(),
 
             // AAC
+            new AAC440(),  
             new AACBHop(),
             new AAC2BHop(),
             new AAC3BHop(),
@@ -78,8 +79,13 @@ public class Speed extends Module {
 
             // Other
             new SlowHop(),
+            new SlowHop2(),
             new Strafe(),
-            new CustomSpeed()
+            new CustomSpeed(),
+
+            // Verus
+            new Verus(),
+            new VerusLow()
     };
 
     public final ListValue modeValue = new ListValue("Mode", getModes(), "Strafe") {
