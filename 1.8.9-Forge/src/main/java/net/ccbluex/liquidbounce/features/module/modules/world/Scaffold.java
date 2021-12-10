@@ -37,7 +37,7 @@ import org.lwjgl.input.Keyboard;
 
 import java.awt.*;
 
-@ModuleInfo(name = "Scaffold", description = "Automatically places blocks beneath your feet.", category = ModuleCategory.WORLD, keyBind = Keyboard.KEY_I)
+@ModuleInfo(name = "Scaffold", description = "Automatically places blocks beneath your feet.", category = ModuleCategory.WORLD)
 public class Scaffold extends Module {
 
     /**
@@ -537,6 +537,6 @@ public class Scaffold extends Module {
 
     @Override
     public String getTag() {
-        return placeModeValue.get();
+        return modeValue.get();
     }
 }
