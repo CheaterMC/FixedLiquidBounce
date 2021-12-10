@@ -35,7 +35,7 @@ import java.math.RoundingMode;
 public class Fly extends Module {
 
     public final ListValue modeValue = new ListValue("Mode", new String[]{
-            "Motion",
+            "Vanilla",
             "Creative",
 
             // NCP
@@ -84,7 +84,7 @@ public class Fly extends Module {
             "Flag"
     }, "Motion");
 
-    private final FloatValue motionSpeedValue = new FloatValue("Speed", 2F, 0F, 5F);
+    private final FloatValue vanillaSpeedValue = new FloatValue("Speed", 2F, 0F, 5F);
     private final BoolValue vanillaKickBypassValue = new BoolValue("KickBypass", false);
 
     private final FloatValue ncpMotionValue = new FloatValue("NCPMotion", 0F, 0F, 1F);
@@ -266,10 +266,10 @@ public class Fly extends Module {
 
     @EventTarget
     public void onUpdate(final UpdateEvent event) {
-        final float motionSpeed = motionSpeedValue.get();
+        final float vanillaSpeed = vanillaSpeedValue.get();
 
         switch (modeValue.get().toLowerCase()) {
-            case "motion":
+            case "vanilla":
                 mc.thePlayer.capabilities.isFlying = false;
                 mc.thePlayer.motionY = 0;
                 mc.thePlayer.motionX = 0;
@@ -278,7 +278,7 @@ public class Fly extends Module {
                     mc.thePlayer.motionY += vanillaSpeed;
                 if (mc.gameSettings.keyBindSneak.isKeyDown())
                     mc.thePlayer.motionY -= vanillaSpeed;
-                MovementUtils.strafe(motionSpeed);
+                MovementUtils.strafe(vanillaSpeed);
 
                 handleVanillaKickBypass();
                 break;
@@ -626,7 +626,7 @@ public class Fly extends Module {
     public void onRender3D(final Render3DEvent event) {
         final String mode = modeValue.get();
 
-        if (!markValue.get() || mode.equalsIgnoreCase("Motion") || mode.equalsIgnoreCase("Creative"))
+        if (!markValue.get() || mode.equalsIgnoreCase("Vanilla") || mode.equalsIgnoreCase("Creative"))
             return;
 
         double y = startY + 2D;
